@@ -21,7 +21,7 @@ const handler = async (event) => {
       const response = qaisTalk.defaultTalk();
       await client.replyMessage(replyToken, response);
     } else {
-      const response = qaisTalk.dictTalk(event);
+      const response = await qaisTalk.dictTalk(event);
       await client.replyMessage(replyToken, response);
     }
   }
