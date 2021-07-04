@@ -1,0 +1,14 @@
+[build]
+  functions="my_functions"
+
+# Redirects for vanillaLineBot
+[[redirects]]
+  from = "/callback/vanilla"
+  to = "/.netlify/functions/vanillaLineBot"
+  status = 200
+
+# Redirects for dictLineBot
+[[redirects]]
+  from = "/callback/dict"
+  to = "/.netlify/functions/dictLineBot"
+  status = 200
