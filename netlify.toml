@@ -12,3 +12,9 @@
   from = "/callback/dict"
   to = "/.netlify/functions/dictLineBot"
   status = 200
+
+# Redirects for toyPeopleLineBot
+[[redirects]]
+  from = "/callback/toyPeople"
+  to = "/.netlify/functions/toyPeopleLineBot"
+  status = 200
