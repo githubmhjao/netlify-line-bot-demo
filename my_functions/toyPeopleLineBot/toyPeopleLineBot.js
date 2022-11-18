@@ -22,9 +22,10 @@ const handler = async (event) => {
 
     const { replyToken } = event;
     const keyWord = "玩具人";
+    let response;
     
     if (event.type !== 'message' || event.message.type !== 'text' || !event.message.text.includes(keyWord)) {
-      const response = {
+      response = {
         type: 'text',
         text: "玩具人玩具人",
       };
@@ -36,8 +37,8 @@ const handler = async (event) => {
       const $ = cheerio.load(text);
 
       const cardList = $(".card.list").map((index, el) => ({
-        title: $(el).find("h2"),
-        image: $(el).find(".image > a").attr("style")
+        title: $(el).find("h2").text(),
+        image: $(el).find(".image > a").attr("style").text()
       }));
 
       console.log("cardList", cardList);
@@ -47,7 +48,7 @@ const handler = async (event) => {
       console.log("cardText", cardText);
 
       // Create a new message.
-      const response = {
+      response = {
         type: 'text',
         text: cardText,
       };
