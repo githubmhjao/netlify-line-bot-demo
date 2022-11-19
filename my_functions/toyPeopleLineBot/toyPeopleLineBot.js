@@ -36,21 +36,15 @@ const handler = async (event) => {
 
       const $ = cheerio.load(text);
 
-      const cardList = $(".card.list").map((index, el) => ({
-        title: $(el).find("h2").text(),
-        image: $(el).find(".image > a").attr("style").text()
-      }));
-
-      console.log("cardList", cardList);
-
-      const cardText = [...cardList].map(li => `${i.title}\n${i.image}`).reduce((pre, curr) => pre + "\n" + curr, "");
-
-      console.log("cardText", cardText);
+      $(".card.list").map((index, el) => {
+        const h2 = $(el).find("h2").text();
+        console.log(h2);
+      });
 
       // Create a new message.
       response = {
         type: 'text',
-        text: cardText,
+        text: "cardList",
       };
     }   
 
