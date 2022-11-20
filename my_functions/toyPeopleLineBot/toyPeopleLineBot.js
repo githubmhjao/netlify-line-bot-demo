@@ -36,6 +36,7 @@ const handler = async (event) => {
 
       const $ = cheerio.load(text);
 
+      console.log("card list #", [...$(".card.list")].length);
       $(".card.list").map((index, el) => {
         const h2 = $(el).find("h2").text();
         console.log(h2);
