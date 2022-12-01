@@ -53,8 +53,8 @@ const carousel = (bubbleArray) => ({
 const handler = async (event) => {
   // 取得環境變數
   const clientConfig = {
-    channelAccessToken: process.env.TOY_CHANNEL_ACCESS_TOKEN || '',
-    channelSecret: process.env.TOY_CHANNEL_SECRET,
+    channelAccessToken: process.env.POKE_CHANNEL_ACCESS_TOKEN || '',
+    channelSecret: process.env.POKE_CHANNEL_SECRET,
   };
   // 用 CHANNEL_ACCESS_TOKEN 和 CHANNEL_SECRET 初始化 Line Bot
   const client = new line.Client(clientConfig);
