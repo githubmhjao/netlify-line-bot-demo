@@ -94,7 +94,7 @@ const handler = async (event) => {
       // Create a new message.
       response = {
         type: 'flex',
-        altText: "Flex",
+        altText: "Pokebeach查詢結果",
         contents: carousel(pokeBubbleArray)
       };
     }   
