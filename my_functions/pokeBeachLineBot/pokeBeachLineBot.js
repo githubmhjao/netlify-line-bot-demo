@@ -88,7 +88,7 @@ const handler = async (event) => {
         bubbleImg: $(el).find('img').attr('src')
       }));
       
-      const pokeBubbleArray = [...pokeArray].map(poke => bubble(poke));
+      const pokeBubbleArray = [...pokeArray].slice(0, 6).map(poke => bubble(poke));
       console.log(pokeBubbleArray);
 
       // Create a new message.
