@@ -18,3 +18,9 @@
   from = "/callback/toyPeople"
   to = "/.netlify/functions/toyPeopleLineBot"
   status = 200
+  
+# Redirects for pokeBeachLineBot
+[[redirects]]
+  from = "/callback/pokeBeach"
+  to = "/.netlify/functions/pokeBeachLineBot"
+  status = 200
