@@ -21,7 +21,9 @@ const handler = async (event) => {
     if (event.type !== 'message' || event.message.type !== 'text') {
       response = qaisTalk.defaultTalk();
     } else if (event.message.text.includes('https')) {
-      response = qaisTalk.decodeURITalk(event);
+      const decodeText = decodeURI(event.message.text);
+      console.log(decodeText);      
+      response = { 'type': 'text', 'text': decodeText };
     } else {
       response = await qaisTalk.dictTalk(event);
     }
