@@ -4,8 +4,8 @@ const qaisTalk = require('./custom_module/qaisTalk.js');
 const handler = async (event) => {
   
   const clientConfig = {
-    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
-    channelSecret: process.env.CHANNEL_SECRET,
+    channelAccessToken: process.env.DICT_CHANNEL_ACCESS_TOKEN || '',
+    channelSecret: process.env.DICT_CHANNEL_SECRET,
   };
 
   const client = new line.Client(clientConfig);
