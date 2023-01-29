@@ -19,11 +19,11 @@ const handler = async (event) => {
     let response;
 
     if (event.type !== 'message' || event.message.type !== 'text') {
-      const response = qaisTalk.defaultTalk();
+      response = qaisTalk.defaultTalk();
     } else if (event.message.text.includes('https')) {
-      const response = qaisTalk.decodeTalk(event);
+      response = qaisTalk.decodeTalk(event);
     } else {
-      const response = await qaisTalk.dictTalk(event);
+      response = await qaisTalk.dictTalk(event);
     }
     
     await client.replyMessage(replyToken, response);
