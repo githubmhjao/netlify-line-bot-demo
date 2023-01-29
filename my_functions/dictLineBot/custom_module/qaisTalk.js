@@ -12,7 +12,7 @@ const defaultTalk = () => {
 const decodeTalk = (event) => {
   const encodeText = encodeURI(event.message.text);
   console.log(encodeText);
-  const response = { 'type': 'text', 'text': replyText };
+  const response = { 'type': 'text', 'text': encodeText };
   
   return response
 };
