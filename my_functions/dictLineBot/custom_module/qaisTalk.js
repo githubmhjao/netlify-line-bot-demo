@@ -9,10 +9,10 @@ const defaultTalk = () => {
   return response
 };
 
-const decodeTalk = (event) => {
-  const encodeText = encodeURI(event.message.text);
-  console.log(encodeText);
-  const response = { 'type': 'text', 'text': encodeText };
+const decodeURITalk = (event) => {
+  const decodeText = decodeURI(event.message.text);
+  console.log(decodeText);
+  const response = { 'type': 'text', 'text': decodeText };
   
   return response
 };
