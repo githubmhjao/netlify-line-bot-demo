@@ -9,6 +9,14 @@ const defaultTalk = () => {
   return response;
 }
 
+const decodeTalk = async (event) => {
+  const encodeText = encodeURI(event.message.text);
+  console.log(encodeText);
+  const response = { 'type': 'text', 'text': replyText };
+  
+  return response  
+}
+
 const dictTalk = async (event) => {
   // fetch data
   const targetWord = event.message.text.trim().toLowerCase();
