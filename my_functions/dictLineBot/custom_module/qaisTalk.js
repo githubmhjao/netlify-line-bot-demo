@@ -13,6 +13,7 @@ const dictTalk = async (event) => {
   // fetch data
   const targetWord = event.message.text.trim().toLowerCase();
   const url = `https://dictionary.cambridge.org/zht/%E8%A9%9E%E5%85%B8/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/${targetWord}`;
+  console.log('url:', url);
   const res = await fetch(url);
   const text = await res.text();
 
@@ -28,15 +29,16 @@ const dictTalk = async (event) => {
     pos: $(el).find(".pos").text(),
     def: [...$(posBody[idx]).find(".def-block").map((_, d) => $(d).find(".def").text())],
     tran: [...$(posBody[idx]).find(".def-block").map((_, d) => $(d).find("span.trans:first-child").text())]
-  }))
+  }));
 
   const objToText = (obj) => {
     const defText = obj.def.map((x, i) => `${i + 1}. ${x}\n# ${obj.tran[i]}`);
     return `[ ${obj.title} ]\n( ${obj.pos} )\n${defText.join("\n")}`
-  }
+  };
 
   const replyText = [...definitionArr].map(objToText).join("\n\n");
-  const response = { 'type': 'text', 'text': replyText }
+  console.log('replyText:', replyText);
+  const response = { 'type': 'text', 'text': replyText };
 
   return response
 }
