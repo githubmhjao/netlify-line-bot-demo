@@ -16,14 +16,17 @@ const handler = async (event) => {
   const handleEvent = async (event) => {
 
     const { replyToken } = event;
+    let response;
 
     if (event.type !== 'message' || event.message.type !== 'text') {
       const response = qaisTalk.defaultTalk();
-      await client.replyMessage(replyToken, response);
+    } else if (event.message.text.includes('https')) {
+      const response = quisTalk.decodeTalk(event);
     } else {
       const response = await qaisTalk.dictTalk(event);
-      await client.replyMessage(replyToken, response);
     }
+    
+    await client.replyMessage(replyToken, response);
   }
 
   try {
