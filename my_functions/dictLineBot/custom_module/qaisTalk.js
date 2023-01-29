@@ -6,16 +6,16 @@ const defaultTalk = () => {
     type: 'text',
     text: '而 Netlify 的回音盪漾～',
   };
-  return response;
-}
+  return response
+};
 
 const decodeTalk = (event) => {
   const encodeText = encodeURI(event.message.text);
   console.log(encodeText);
   const response = { 'type': 'text', 'text': replyText };
   
-  return response  
-}
+  return response
+};
 
 const dictTalk = async (event) => {
   // fetch data
@@ -49,6 +49,5 @@ const dictTalk = async (event) => {
   const response = { 'type': 'text', 'text': replyText };
 
   return response
-}
-
+};
 module.exports = { defaultTalk, dictTalk };
